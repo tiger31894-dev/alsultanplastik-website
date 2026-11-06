@@ -51,6 +51,8 @@ main{padding:16px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .cat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px 12px 12px;text-align:left;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;min-height:150px}
 .cat .ic{width:62px;height:62px;border-radius:14px;background:var(--ice);display:grid;place-items:center}
+.cat .ic:has(img){width:84px;height:84px;background:#fff}
+.cat .ic img{width:100%;height:100%;object-fit:contain;border-radius:14px;background:#fff}
 .cat b{font-size:15px;color:var(--ink);line-height:1.2}
 .cat small{color:var(--muted);font-size:12.5px;line-height:1.3}
 .cat .n{margin-top:auto;font-size:12px;font-weight:700;color:var(--blue)}
@@ -411,9 +413,10 @@ function header({title, sub, back, search}){
 
 /* ---------- views ---------- */
 const WAVE = `<svg class="wave" viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0 20 Q50 0 100 20 T200 20 T300 20 T400 20 V40 H0Z" fill="#4FB3EA"/></svg>`;
+const CAT_PHOTO = {"ppr-pipes":"pipe_green","ppr-fittings":"tee","ppr-threaded":"m_socket","ppr-valves":"stop_valve","ppr-tools":"clip"};
 function catCard(c){
   const n = DATA.products.filter(p => p.cat === c.id).length;
-  return `<button class="cat" onclick="go('#cat-${c.id}')"><span class="ic">${ico(c.icon, c.family, 50)}</span><b>${esc(cn(c))}</b><small>${esc(cd(c))}</small><span class="n">${t('n_products',{n})} ${LANG==='ar'?'‹':'›'}</span></button>`;
+  return `<button class="cat" onclick="go('#cat-${c.id}')"><span class="ic">${CAT_PHOTO[c.id] && PHOTOS[CAT_PHOTO[c.id]] ? `<img src="${PHOTOS[CAT_PHOTO[c.id]]}" alt="">` : ico(c.icon, c.family, 50)}</span><b>${esc(cn(c))}</b><small>${esc(cd(c))}</small><span class="n">${t('n_products',{n})} ${LANG==='ar'?'‹':'›'}</span></button>`;
 }
 let famTab = "ppr";
 function renderHome(){

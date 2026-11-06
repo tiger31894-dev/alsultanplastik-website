@@ -239,7 +239,7 @@ bdi,.chip{unicode-bidi:isolate}
    whatsapp: country code + number, digits only (e.g. 971501234567)
    ========================================================= */
 const CONFIG = {
-  company: "Al Sultan Plastic",
+  company: "Al Sultan Plastik",
   phone: "+963 985 394 348",
   phone2: "+90 531 743 07 93",
   whatsapp: "963985394348",
@@ -394,7 +394,7 @@ const ICON_BACK = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" s
 const ICON_CART = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.1L21 8H6"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="17.5" cy="20" r="1.4"/></svg>`;
 const ICON_SEARCH = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>`;
 function header({title, sub, back, search}){
-  const left = back ? `<button class="back" onclick="history.length>1?history.back():go('#home')" aria-label="${t('back')}">${ICON_BACK}</button>` : `<img class="logo" src="${LOGO}" alt="Al Sultan Plastic logo">`;
+  const left = back ? `<button class="back" onclick="history.length>1?history.back():go('#home')" aria-label="${t('back')}">${ICON_BACK}</button>` : `<img class="logo" src="${LOGO}" alt="Al Sultan Plastik logo">`;
   $("#top").innerHTML = `<div class="row">${left}<div><h1>${esc(title)}</h1><div class="tag">${esc(sub||"")}</div></div>
   <button class="langbtn" onclick="openLang()" aria-label="${t('language')}">${(LANG||"en").toUpperCase()}</button>
   <button class="cartbtn" onclick="go('#cart')" aria-label="${t('nav_quote')}">${ICON_CART}<span class="badge" id="hbadge" style="display:none"></span></button></div>
@@ -412,7 +412,7 @@ function catCard(c){
 }
 let famTab = "ppr";
 function renderHome(){
-  header({title:"Al Sultan Plastic", sub:t("tag"), search:true});
+  header({title:"Al Sultan Plastik", sub:t("tag"), search:true});
   $("#view").innerHTML = `
   <div class="hero"><h2>${t("hero_t")}</h2><p>${t("hero_p")}</p><img src="${LOGO}" alt="">${WAVE}</div>
   <div class="sec"><h3>${t("shop_by")}</h3><span class="pill">${t("n_products",{n:DATA.products.length})}</span></div>
@@ -425,7 +425,7 @@ function renderHome(){
   </div>
   <button class="aboutcard" onclick="go('#about')"><img src="${LOGO}" alt=""><span style="flex:1"><b>${t("about_title")}</b><br><span class="note">${COMPANY.founded ? t("anniv_line",{y:yearsActive(),since:COMPANY.founded}) : t("about_teaser")}</span></span><span style="color:var(--blue);font-size:22px">${LANG==='ar'?'‹':'›'}</span></button>
   <div class="contactstrip"><div><b>${t("help_t")}</b><br>${t("help_d")}</div><button class="btn white" onclick="go('#contact')">${t("contact_btn")}</button></div>
-  <div class="foot">© ${new Date().getFullYear()} Al Sultan Plastic</div>`;
+  <div class="foot">© ${new Date().getFullYear()} Al Sultan Plastik</div>`;
 }
 function renderProducts(){
   header({title:t("all_products"), sub:t("tag"), search:true});
@@ -593,7 +593,7 @@ function renderContact(){
   const wa = (CONFIG.whatsapp||"").replace(/\D/g,"");
   const tel = CONFIG.phone.replace(/[^\d+]/g,"");
   $("#view").innerHTML = `
-  <div class="card" style="text-align:center;padding:22px"><img src="${LOGO}" alt="Al Sultan Plastic logo" style="width:110px;height:110px;border-radius:50%"><h2 style="color:var(--navy);margin:10px 0 4px">${esc(CONFIG.company)}</h2><p class="note" style="margin:0">${t("tagline2")}</p></div>
+  <div class="card" style="text-align:center;padding:22px"><img src="${LOGO}" alt="Al Sultan Plastik logo" style="width:110px;height:110px;border-radius:50%"><h2 style="color:var(--navy);margin:10px 0 4px">${esc(CONFIG.company)}</h2><p class="note" style="margin:0">${t("tagline2")}</p></div>
   <div class="sec"><h3>${t("get_in_touch")}</h3></div>
   ${configured() ? "" : `<div class="banner">${t("contact_banner")}</div>`}
   <div class="clist">
@@ -607,7 +607,7 @@ function renderContact(){
     <div class="cbtn"><span class="ci" style="background:var(--aqua)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><b>${t("location")}</b><small>${esc(cfg(CONFIG.address))}</small></span></div>
   </div>
   <button class="btn primary block" style="margin-top:16px" onclick="go('#products')">${t("request_quote")}</button>
-  <div class="foot">© ${new Date().getFullYear()} Al Sultan Plastic</div>`;
+  <div class="foot">© ${new Date().getFullYear()} Al Sultan Plastik</div>`;
 }
 
 function yearsActive(){ return new Date().getFullYear() - COMPANY.founded; }
@@ -640,7 +640,7 @@ function renderAbout(){
   <div class="certs">${certs}</div>
   ${vids}
   <div class="contactstrip"><div><b>${t("help_t")}</b><br>${t("help_d")}</div><button class="btn white" onclick="go('#contact')">${t("contact_btn")}</button></div>
-  <div class="foot">© ${new Date().getFullYear()} Al Sultan Plastic</div>`;
+  <div class="foot">© ${new Date().getFullYear()} Al Sultan Plastik</div>`;
 }
 
 /* ---------- router ---------- */
